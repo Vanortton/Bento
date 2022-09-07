@@ -88,6 +88,9 @@
 	<!-- Icons -->
 	<script>
 		lucide.createIcons();
+		if (objectSaved == null || objectSaved == undefined || objectSaved === {}) {
+			window.location.href = "/settings.html"
+		}
 	</script>
 </body>
 
