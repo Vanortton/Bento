@@ -105,9 +105,9 @@
         document.querySelector('input[name="name"]').value = CONFIGSaved.name ? CONFIGSaved.name : 'User'
 
         for (const sett in CONFIGSaved) {
-            console.log(sett + ':' + CONFIGSaved[sett])
-            sett !== 'name' && sett !== 'hourDarkThemeActive' && sett !== 'hourDarkThemeInactive' && sett !== 'dataImage' ?
-                document.querySelector(`input[name="${sett}"][value="${CONFIGSaved[sett]}"]`).checked = true : ''
+            sett !== 'name' && sett !== 'hourDarkThemeActive' && sett !== 'hourDarkThemeInactive' && sett !== 'dataImage' ? () => {
+                    console.log(sett + ':' + CONFIGSaved[sett])
+                    document.querySelector(`input[name="${sett}"][value="${CONFIGSaved[sett]}"]`).checked = true } : ''
                 sett === 'hourDarkThemeActive' || sett === 'hourDarkThemeInactive' ? document.querySelector(`input[name="${sett}"]`).value = CONFIGSaved[sett] : ''
         }
     </script>
