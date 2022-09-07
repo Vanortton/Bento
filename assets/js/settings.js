@@ -1,7 +1,7 @@
 let objectSaved = JSON.parse(window.localStorage.getItem('CONFIG'))
 let CONFIGSaved = { ...objectSaved }
 
-let base64String = objectSaved.dataImage || ""
+let base64String = objectSaved.dataImage || "assets/background.jpg"
 
 function imageUploaded() {
     var file = document.querySelector('input#uploadImageBackground')['files'][0]

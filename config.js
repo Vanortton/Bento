@@ -197,6 +197,10 @@ let CONFIG = {
 	],
 }
 
+if (window.localStorage.getItem('CONFIG') === null) {
+	(window.localStorage.setItem('CONFIG', JSON.stringify(CONFIG)))
+}
+
 for (let sett in CONFIGSaved) {
 	CONFIG[`${sett}`] = CONFIGSaved[sett]
 }
