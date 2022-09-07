@@ -197,8 +197,22 @@ let CONFIG = {
 	],
 }
 
+const PRECONFIG = {
+	nome: 'User',
+	imageBackground: false,
+	dataImage: 'assets/background.jpg',
+	openInNewTab: false,
+	bentoLayout: 'bento',
+	weatherIcons: 'OneDark',
+	changeThemeByHour: false,
+	hourDarkThemeActive: '06:00',
+	hourDarkThemeInactive: '18:00',
+	changeThemeByOS: true,
+	autoChangeTheme: true
+}
+
 if (window.localStorage.getItem('CONFIG') === null) {
-	(window.localStorage.setItem('CONFIG', JSON.stringify(CONFIG)))
+	window.localStorage.setItem('CONFIG', JSON.stringify(PRECONFIG))
 }
 
 let objectSaved = JSON.parse(window.localStorage.getItem('CONFIG'))
