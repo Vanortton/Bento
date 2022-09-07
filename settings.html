@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configurações</title>
+    <link rel="shortcut icon" href="assets/icons/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="app.css">
+    <link rel="stylesheet" href="settings.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+    <a href="./index.html">
+        <button id="settings">
+            <i id="settingsIcon" icon-name="home"></i>
+        </button>
+    </a>
+    <button id="themeButton">
+        <i id="themeIcon" icon-name="moon"></i>
+    </button>
+    <div class="alert">Alerta</div>
+    <main class="main">
+        <h1>Configurações</h1>
+        <br><hr>
+        <form class="settings" action="">
+            <div class="nome">
+                <h3>Nome</h3>
+                <input type="text" name="name" placeholder="Digite seu nome" />
+            </div>
+            <hr />
+            <div class="imageBackground">
+                <h3>Imagem de fundo</h3>
+                <label for="imageBackgroundtrue"><input type="radio" name="imageBackground" id="imageBackgroundtrue" value="true" /> Sim</label>
+                <label for="imageBackgroundfalse"><input type="radio" name="imageBackground" id="imageBackgroundfalse" value="false" /> Não</label>
+                <label for="uploadImageBackground" id="labelUploadBackground">Carregar Imagem</label>
+                <input type="file" id="uploadImageBackground" onchange="imageUploaded()">
+            </div>
+            <hr />
+            <div class="openInNewTab">
+                <h3>Abrir links em uma nova guia</h3>
+                <label for="openInNewTabtrue"><input type="radio" name="openInNewTab" id="openInNewTabtrue" value="true" /> Sim</label>
+                <label for="openInNewTabfalse"><input type="radio" name="openInNewTab" id="openInNewTabfalse" value="false" /> Não</label>
+            </div>
+            <hr />
+            <div class="twelveHourFormat">
+                <h3>Hora em formato de 12h</h3>
+                <label for="twelveHourFormattrue"><input type="radio" name="twelveHourFormat" id="twelveHourFormattrue" value="true" /> Sim</label>
+                <label for="twelveHourFormatfalse"><input type="radio" name="twelveHourFormat" id="twelveHourFormatfalse" value="false" /> Não</label>
+            </div>
+            <hr />
+            <div class="layout">
+                <h3>Layout</h3>
+                <label for="bentoLayoutbento"><input type="radio" name="bentoLayout" id="bentoLayoutbento" value="bento" /> Bento</label>
+                <label for="bentoLayoutlists"><input type="radio" name="bentoLayout" id="bentoLayoutlists" value="lists" /> Lists</label>
+                <label for="bentoLayoutbuttons"><input type="radio" name="bentoLayout" id="bentoLayoutbuttons" value="buttons" /> Buttons</label>
+            </div>
+            <hr />
+            <div class="waterIcons">
+                <h3>Tema dos ícones do tempo</h3>
+                <label for="weatherIconsOneDark"><input type="radio" name="weatherIcons" id="weatherIconsOneDark" value="OneDark" /> OneDark (padrão)</label>
+                <label for="weatherIconsNord"><input type="radio" name="weatherIcons" id="weatherIconsNord" value="Nord" /> Nord</label>
+                <label for="weatherIconsDark"><input type="radio" name="weatherIcons" id="weatherIconsDark" value="Dark" /> Dark</label>
+                <label for="weatherIconsWhite"><input type="radio" name="weatherIcons" id="weatherIconsWhite" value="White" /> White</label>
+            </div>
+            <hr />
+            <div class="changeThemeByHour">
+                <h3>Mudar tema pela hora</h3>
+                <label for="changeThemeByHourfalse"><input type="radio" name="changeThemeByHour" id="changeThemeByHourfalse" value="false" /> Não</label>
+                <label for="changeThemeByHourtrue"><input type="radio" name="changeThemeByHour" id="changeThemeByHourtrue" value="true" /> Sim</label>
+                <label for="hourDarkThemeInactive">A partir de <input type="time" name="hourDarkThemeInactive" id="hourDarkThemeInactive claro" /> exiba no tema claro.</label>
+                <label for="hourDarkThemeActive">A partir de <input type="time" name="hourDarkThemeActive" id="hourDarkThemeActive escuro" /> exiba no tema escuro.</label>
+            </div>
+            <hr />
+            <div class="changeThemeByOS">
+                <h3>Mudar tema a partir das preferencias do sistema</h3>
+                <label for="changeThemeByOStrue"><input type="radio" name="changeThemeByOS" id="changeThemeByOStrue" value="true" /> Sim</label>
+                <label for="changeThemeByOSfalse"><input type="radio" name="changeThemeByOS" id="changeThemeByOSfalse" value="false" /> Não</label>
+            </div>
+            <hr />
+            <div class="autoChangeTheme">
+                <h3>Mudar tema automaticamente <span style="color: #8b8b8b;">(a partir da hora)</span></h3>
+                <label for="autoChangeThemetrue"><input type="radio" name="autoChangeTheme" id="autoChangeThemetrue" value="true" /> Sim</label>
+                <label for="autoChangeThemefalse"><input type="radio" name="autoChangeTheme" id="autoChangeThemefalse" value="false" /> Não</label>
+            </div>
+            <div class="buttons">
+                <button btn-salvar type="submit">Salvar</button>
+                <button><a href="./index.html">Cancelar</a></button>
+            </div>
+        </form>
+    </main>
+    <footer>
+        Criado por <a href="https://github.com/migueravila/">Miguel Ávila</a>
+         e melhorado por <a href="https://github.com/Vanortton">Vanorton</a>
+    </footer>
+    <script src="assets/js/settings.js"></script>
+    <script src="config.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script>
+        document.querySelector('button[btn-salvar]').onclick = (e) => {
+                e.preventDefault()
+                saveData()
+        }
+        document.querySelector('input[name="name"]').value = CONFIGSaved.name
+
+        for (const sett in CONFIGSaved) {
+            sett !== 'name' && sett !== 'hourDarkThemeActive' && sett !== 'hourDarkThemeInactive' && sett !== 'dataImage' ?
+                document.querySelector(`input[name="${sett}"][value="${CONFIGSaved[sett]}"]`).checked = true : ''
+                sett === 'hourDarkThemeActive' || sett === 'hourDarkThemeInactive' ? document.querySelector(`input[name="${sett}"]`).value = CONFIGSaved[sett] : ''
+        }
+    </script>
+</body>
+
+</html>
