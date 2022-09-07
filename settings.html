@@ -102,7 +102,7 @@
                 e.preventDefault()
                 saveData()
         }
-        document.querySelector('input[name="name"]').value = CONFIGSaved.name
+        document.querySelector('input[name="name"]').value = CONFIGSaved.name ? CONFIGSaved.name : 'User'
 
         for (const sett in CONFIGSaved) {
             sett !== 'name' && sett !== 'hourDarkThemeActive' && sett !== 'hourDarkThemeInactive' && sett !== 'dataImage' ?
