@@ -1,4 +1,5 @@
 let objectSaved = JSON.parse(window.localStorage.getItem('CONFIG'))
+if (!objectSaved) setTimeout(() => objectSaved = JSON.parse(window.localStorage.getItem('CONFIG')), 100)
 let CONFIGSaved = { ...objectSaved }
 
 let base64String = objectSaved.dataImage || "assets/background.jpg"
