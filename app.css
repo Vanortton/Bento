@@ -98,6 +98,8 @@ body {
   display: flex;
   position: absolute;
   top: 25px;
+  box-shadow: 0 5px 7px rgba(0, 0, 0, 0.35);
+  border-radius: 16px;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -123,7 +125,6 @@ button {
 input.search-text {
   padding: 12px 15px;
   border-radius: 1em 0px 0px 1em;
-  box-shadow: 0 5px 7px rgba(0, 0, 0, 0.35);
   width: 370px;
   max-width: 65vw;
 }
