@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap');
 
 body {
-  --fg-primary: 12vh;
-  --fg-secondary: 3vh;
-  --fg-date: 8vh;
-  --fg-list: 2vh;
+  --fg-primary: 16px;
+  --fg-secondary: 14px;
+  --fg-date: 22px;
+  --fg-list: 16px;
   --icon: 3vh;
 
   --fg: #3a3a3a;
@@ -123,10 +123,10 @@ button {
 }
 
 input.search-text {
-  padding: 12px 15px;
-  border-radius: 1em 0px 0px 1em;
-  width: 370px;
-  max-width: 65vw;
+    padding: 12px 15px;
+    border-radius: 16px 0px 0px 16px;
+    width: 65vw;
+    font-size: 16px;
 }
 
 .search-btn {
@@ -217,9 +217,9 @@ button:active {
 }
 
 .date div {
-  font-size: var(--fg-date);
-  font-weight: bold;
-  color: var(--fg);
+    font-size: var(--fg-date);
+    font-weight: bold;
+    color: var(--fg);
 }
 
 #day {
@@ -413,7 +413,7 @@ button:active {
     padding: 0px;
     display: flex;
     flex-direction: column;
-    width: 145vh;
+    width: 95vw;
     margin-top: 70px;
   }
 
