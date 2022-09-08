@@ -198,7 +198,7 @@ let CONFIG = {
 }
 
 const PRECONFIG = {
-	nome: 'User',
+	name: 'User',
 	imageBackground: false,
 	dataImage: 'assets/background.jpg',
 	openInNewTab: false,
