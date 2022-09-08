@@ -5,7 +5,7 @@ body {
   --fg-secondary: 14px;
   --fg-date: 22px;
   --fg-list: 16px;
-  --icon: 3vh;
+  --icon: 30px;
 
   --fg: #3a3a3a;
   --sfg: #494949;
@@ -126,7 +126,7 @@ input.search-text {
     padding: 12px 15px;
     border-radius: 16px 0px 0px 16px;
     width: 65vw;
-    font-size: 16px;
+    font-size: 1rem;
 }
 
 .search-btn {
@@ -138,8 +138,8 @@ input.search-text {
 }
 
 .container {
-  width: 145vh;
-  height: 85vh;
+  width: 95vw;
+  height: 100%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(4, 1fr);
