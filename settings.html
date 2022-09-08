@@ -128,7 +128,7 @@
 
         for (const sett in CONFIGSaved) {
             sett !== 'name' && sett !== 'hourDarkThemeActive' && sett !== 'hourDarkThemeInactive' && sett !== 'dataImage' ?
-                console.log(document.querySelector(`input[name="${sett}"][value="${CONFIGSaved[sett]}"]`)) : ''
+                console.log(sett + document.querySelector(`input[name="${sett}"][value="${CONFIGSaved[sett]}"]`)) : ''
             sett === 'hourDarkThemeActive' || sett === 'hourDarkThemeInactive' ? document.querySelector(`input[name="${sett}"]`).value = CONFIGSaved[sett] : ''
         }
     </script>
