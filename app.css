@@ -3,9 +3,9 @@
 body {
   --fg-primary: 70px;
   --fg-secondary: 25px;
-  --fg-date: 22px;
+  --fg-date: 50px;
   --fg-list: 16px;
-  --icon: 30px;
+  --icon: 20px;
 
   --fg: #3a3a3a;
   --sfg: #494949;
