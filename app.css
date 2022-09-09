@@ -89,6 +89,23 @@ body.mobile input.search-text {
   width: 65vw;
 }
 
+body.mobile .card {
+  padding: 70px 0px;
+  background-color: var(--cards);
+  box-shadow: 0 5px 7px rgb(0 0 0 / 35%);
+  border-radius: 5px;
+  height: 180px;
+}
+
+body.mobile .timeBlock {
+  margin: 2vh 0vw;
+}
+
+body.mobile .weatherIcon img {
+  width: 12vw;
+  height: 12vw;
+}
+
 .notransition {
   -webkit-transition: none;
   -moz-transition: none;
