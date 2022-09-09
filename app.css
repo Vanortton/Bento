@@ -85,6 +85,10 @@ body.mobile #settings svg {
   width: 5vw;
 }
 
+body.mobile input.search-text {
+  width: 65vw;
+}
+
 .notransition {
   -webkit-transition: none;
   -moz-transition: none;
@@ -158,7 +162,7 @@ button {
 input.search-text {
   padding: 12px 15px;
   border-radius: 16px 0px 0px 16px;
-  width: 65vw;
+  width: 450px;
   font-size: 1rem;
 }
 
