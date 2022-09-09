@@ -61,10 +61,6 @@ body.mobile {
   --icon: 4.3vw;
 }
 
-body.mobile .container {
-  margin-top: 100px;
-}
-
 body.mobile .card {
   padding: 70px 0px;
   background-color: var(--cards);
@@ -87,6 +83,10 @@ body.mobile #settings svg {
 
 body.mobile input.search-text {
   width: 65vw;
+}
+
+body.mobile .list {
+  min-height: 483px;
 }
 
 body.mobile .card {
