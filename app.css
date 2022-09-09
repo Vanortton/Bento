@@ -53,12 +53,16 @@ body {
 }
 
 body.mobile {
-  font-size: 3vw;
-  --fg-primary: 15vw;
-  --fg-secondary: 5vw;
-  --fg-date: 45px;
+  font-size: 3.3vw;
+  --fg-primary: 16vw;
+  --fg-secondary: 6vw;
+  --fg-date: 8vw;
   --fg-list: 3vw;
-  --icon: 4vw;
+  --icon: 4.3vw;
+}
+
+body.mobile .container {
+  margin-top: 100px;
 }
 
 body.mobile .card {
@@ -72,12 +76,12 @@ body.mobile input.search-text {
   padding: 16px 20px;
   border-radius: 16px 0px 0px 16px;
   width: 65vw;
-  font-size: 3vw;
+  font-size: 3.3vw;
 }
 
 body.mobile #themeButton svg,
 body.mobile #settings svg {
-  height: 4.5vw;
+  height: 6.5vw;
   width: 5vw;
 }
 
