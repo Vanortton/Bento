@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap');
 
 body {
-  --fg-primary: 16px;
-  --fg-secondary: 14px;
+  --fg-primary: 65px;
+  --fg-secondary: 20px;
   --fg-date: 22px;
   --fg-list: 16px;
   --icon: 30px;
@@ -10,18 +10,18 @@ body {
   --fg: #3a3a3a;
   --sfg: #494949;
 
-  /* --accent: #d95757; */
   --accent: #57a0d9;
   --background: #f5f5f5;
   --cards: #e4e6e6;
   --input-bg: #e4e6e6;
-
+  
   --imgbg: url(assets/background.jpg);
   --imgcol: linear-gradient(rgba(255, 255, 255, 0.7),
-      rgba(255, 255, 255, 0.7));
+  rgba(255, 255, 255, 0.7));
 }
 
 .darktheme {
+  /* --accent: #d95757; */
   --accent: #57a0d9;
   --background: #19171a;
   --cards: #201e21;
