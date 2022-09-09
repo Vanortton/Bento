@@ -14,10 +14,10 @@ body {
   --background: #f5f5f5;
   --cards: #e4e6e6;
   --input-bg: #e4e6e6;
-  
+
   --imgbg: url(assets/background.jpg);
   --imgcol: linear-gradient(rgba(255, 255, 255, 0.7),
-  rgba(255, 255, 255, 0.7));
+      rgba(255, 255, 255, 0.7));
 }
 
 .darktheme {
@@ -123,10 +123,10 @@ button {
 }
 
 input.search-text {
-    padding: 12px 15px;
-    border-radius: 16px 0px 0px 16px;
-    width: 65vw;
-    font-size: 1rem;
+  padding: 12px 15px;
+  border-radius: 16px 0px 0px 16px;
+  width: 65vw;
+  font-size: 1rem;
 }
 
 .search-btn {
@@ -166,6 +166,7 @@ button:active {
   background-color: var(--cards);
   box-shadow: 0 5px 7px rgba(0, 0, 0, 0.35);
   border-radius: 5px;
+  min-height: 90px;
 }
 
 .card:hover {
@@ -217,9 +218,9 @@ button:active {
 }
 
 .date div {
-    font-size: var(--fg-date);
-    font-weight: bold;
-    color: var(--fg);
+  font-size: var(--fg-date);
+  font-weight: bold;
+  color: var(--fg);
 }
 
 #day {
@@ -393,6 +394,36 @@ button:active {
   color: var(--sfg);
 }
 
+@media (max-width: 40em) {
+  body {
+    font-size: 3vw;
+    --fg-primary: 15vw;
+    --fg-secondary: 5vw;
+    --fg-date: 45px;
+    --fg-list: 3vw;
+    --icon: 4vw;
+  }
+
+  .card {
+    padding: 70px 0px;
+    background-color: var(--cards);
+    box-shadow: 0 5px 7px rgb(0 0 0 / 35%);
+    border-radius: 5px;
+  }
+
+  input.search-text {
+    padding: 16px 20px;
+    border-radius: 16px 0px 0px 16px;
+    width: 65vw;
+    font-size: 3vw;
+  }
+
+  #themeButton svg,
+  #settings svg {
+    height: 4.5vw;
+    width: 5vw;
+  }
+}
 
 
 @media only screen and (max-width: 68.75em) {
