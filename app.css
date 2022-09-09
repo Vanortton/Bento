@@ -394,35 +394,7 @@ button:active {
   color: var(--sfg);
 }
 
-@media (max-width: 40em) {
-  body {
-    font-size: 3vw;
-    --fg-primary: 15vw;
-    --fg-secondary: 5vw;
-    --fg-date: 45px;
-    --fg-list: 3vw;
-    --icon: 4vw;
-  }
-
-  .card {
-    padding: 70px 0px;
-    background-color: var(--cards);
-    box-shadow: 0 5px 7px rgb(0 0 0 / 35%);
-    border-radius: 5px;
-  }
-
-  input.search-text {
-    padding: 16px 20px;
-    border-radius: 16px 0px 0px 16px;
-    width: 65vw;
-    font-size: 3vw;
-  }
-
-  #themeButton svg,
-  #settings svg {
-    height: 4.5vw;
-    width: 5vw;
-  }
+@media (max-width: 45em) {
 }
 
 
