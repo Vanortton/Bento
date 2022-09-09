@@ -424,11 +424,9 @@ button:active {
 }
 
 .listIcon {
-
-  margin-bottom: 2vh;
-  color: var(--fg);
   width: var(--icon);
   height: var(--icon);
+  color: var(--fg);
 }
 
 .listItem {
