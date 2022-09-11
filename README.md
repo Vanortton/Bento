@@ -51,5 +51,16 @@ You can use different Add-ons/Extensions for it
 ### 🌑 Auto change theme
 The theme can be set from the following ways:The theme can be set from the following ways:
    - By your browser's theme preferences:
+      - Change theme by time: No
+      - Change theme from system preferences: Yes
+      - Change theme automatically: Yes
+
    - From the time:
-   - Or you can choose the theme by clicking the button in the upper right corner.
+      - Change theme by time: Yes
+      - Change theme from system preferences: No
+      - Change theme automatically: Yes
+
+   - Or you can choose the theme by clicking the button in the upper right corner:
+      - Change theme by time: No
+      - Change theme from system preferences: No
+      - Change theme automatically: No
