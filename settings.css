@@ -26,6 +26,14 @@ body {
     display: block;
 }
 
+.settings div.homePage a {
+    text-decoration: underline;
+}
+
+.settings div.homePage ul {
+    padding-left: 30px;
+}
+
 main.main {
     width: 93vw;
     margin: 70px 25px 0px 25px;
