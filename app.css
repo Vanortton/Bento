@@ -111,7 +111,7 @@ body.mobile .linksBlock {
 }
 
 body.mobile .buttonsContainer {
-  grid-row-gap: 60px;
+  grid-row-gap: 70px;
 }
 
 .notransition {
