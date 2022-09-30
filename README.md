@@ -1,6 +1,3 @@
-<style>
-  img { border-radius: 10px; }
-</style>
 <h1 align="center">Bento</h1>
 
 ![](assets/img/header.png)
