@@ -98,7 +98,7 @@ function averageColor(imageElement) {
 
 	return rgb
 }
-let mediaColorsImg
+let mediaColorsImg;
 
 setTimeout(() => {
 	const img = document.createElement('img')
