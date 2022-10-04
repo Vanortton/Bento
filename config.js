@@ -103,7 +103,7 @@ let CONFIG = {
 			link: 'https://figma.com/',
 		},
 	],
-	firstlistsContainer: [
+	firstListsContainer: [
 		{
 			icon: 'music',
 			id: '1',
@@ -197,7 +197,7 @@ let CONFIG = {
 	],
 }
 
-const PRECONFIG = {
+let PRECONFIG = {
 	name: 'User',
 	imageBackground: false,
 	dataImage: 'assets/background.jpg',
@@ -211,7 +211,18 @@ const PRECONFIG = {
 	autoChangeTheme: true
 }
 
-if (JSON.parse(window.localStorage.getItem('CONFIG')) == null) window.localStorage.setItem('CONFIG', JSON.stringify(PRECONFIG))
+let buttons = {
+	firstButtonsContainer: { ...CONFIG.firstButtonsContainer },
+	secondButtonsContainer: { ...CONFIG.secondButtonsContainer }
+}
+
+// let lists = { 
+// 	firstListsContainer: {...CONFIG.firstListsContainer},
+// 	secondListsContainer: { ...CONFIG.secondListsContainer }
+// }
+
+JSON.parse(window.localStorage.getItem('CONFIG')) == null ?
+	window.localStorage.setItem('CONFIG', JSON.stringify(PRECONFIG)) : PRECONFIG = JSON.parse(window.localStorage.getItem('CONFIG'))
 let objectSaved = JSON.parse(window.localStorage.getItem('CONFIG'))
 
 let CONFIGSaved = { ...objectSaved }
