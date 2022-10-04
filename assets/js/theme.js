@@ -107,7 +107,6 @@ setTimeout(() => {
 	rgb = averageColor(img)
 
 	const stringRGB = 'rgb(' + (rgb.r > 0 ? rgb.r + 50 : rgb.r) + ','
-		+ (rgb.g + 30) + ','
-		+ (rgb.r <= 0 ? rgb.b + 150 : rgb.b) + ')'
+		+ (rgb.g + 30) + ',' + (rgb.r <= 0 ? rgb.b + 150 : rgb.b) + ')'
 	document.body.style.setProperty('--accent', stringRGB)
 }, 500)
