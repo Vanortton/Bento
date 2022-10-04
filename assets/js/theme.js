@@ -98,12 +98,13 @@ function averageColor(imageElement) {
 
 	return rgb
 }
-let mediaColorsImg;
+
+let rgb = ''
 
 setTimeout(() => {
 	const img = document.createElement('img')
 	img.src = CONFIGSaved.dataImage
-	mediaColorsImg = averageColor(img)
+	rgb = averageColor(img)
 
 	const stringRGB = 'rgb(' + (rgb.r > 0 ? rgb.r + 50 : rgb.r) + ','
 		+ (rgb.g + 30) + ','
