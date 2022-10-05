@@ -101,10 +101,12 @@ function averageColor(imageElement) {
 
 let rgb = ''
 
-const img = document.createElement('img')
-img.src = CONFIGSaved.dataImage
-rgb = averageColor(img)
+window.onload = () => {
+	const img = document.createElement('img')
+	img.src = CONFIGSaved.dataImage
+	rgb = averageColor(img)
 
-const stringRGB = 'rgb(' + (rgb.r > 0 ? rgb.r + 50 : rgb.r) + ','
-	+ (rgb.g + 30) + ',' + (rgb.r <= 0 ? rgb.b + 150 : rgb.b) + ')'
-document.body.style.setProperty('--accent', stringRGB)
+	const stringRGB = 'rgb(' + (rgb.r > 0 ? rgb.r + 50 : rgb.r) + ','
+		+ (rgb.g + 30) + ',' + (rgb.r <= 0 ? rgb.b + 150 : rgb.b) + ')'
+	document.body.style.setProperty('--accent', stringRGB)
+}
