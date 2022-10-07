@@ -127,20 +127,8 @@
         e melhorado por <a href="https://github.com/Vanortton">Vanorton</a>
     </footer>
     <script src="config.js"></script>
+    <script src="assets/js/settings.js"></script>
     <script src="assets/js/theme.js"></script>
-    <script>
-        document.querySelector('button[btn-salvar]').onclick = (e) => {
-            e.preventDefault()
-            saveData()
-        }
-        document.querySelector('input[name="name"]').value = CONFIGSaved.name ? CONFIGSaved.name : 'User'
-
-        for (const sett in CONFIGSaved) {
-            sett !== 'name' && sett !== 'hourDarkThemeActive' && sett !== 'hourDarkThemeInactive' && sett !== 'dataImage' ?
-                document.querySelector(`input[name="${sett}"][value="${CONFIGSaved[sett]}"]`).checked = true : ''
-            sett === 'hourDarkThemeActive' || sett === 'hourDarkThemeInactive' ? document.querySelector(`input[name="${sett}"]`).value = CONFIGSaved[sett] : ''
-        }
-    </script>
 </body>
 
 </html>
