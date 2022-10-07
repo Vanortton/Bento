@@ -13,13 +13,7 @@ const generateFirstButtonsContainer = () => {
         >
           <i class="buttonIcon" icon-name="${button.icon}"></i>
 		  <span>&nbsp;${button.name}</span>
-		  <div class="button-edite">
-		  	<a href="#">
-			  <button id="${button.id}-1">
-				<i icon-name="pencil"></i>
-			  </button>
-		  	</a>
-		  </div>
+		  <button class="button-edite" id="${button.id}-1"><i icon-name="pencil"></i></button>
         </a>
     `;
 
@@ -39,13 +33,7 @@ const generateSecondButtonsContainer = () => {
         >
           <i class="buttonIcon" icon-name="${button.icon}"></i>
 		  <span>&nbsp;${button.name}</span>
-		  <div class="button-edite">
-		  	<a href="#">
-			  <button id="${button.id}-2">
-				<i icon-name="pencil"></i>
-			  </button>
-		  	</a>
-		  </div>
+		  <button class="button-edite" id="${button.id}-2"><i icon-name="pencil"></i></button>
         </a>
     `;
 
