@@ -3,7 +3,9 @@
 //  ┴ ┴ ┴└─┘┴ ┴└─┘
 // Set theme based on Configurations and Preferences
 
+let rgb = ''
 let darkTheme = localStorage.getItem('darkTheme')
+let themeEnable = 'Light'
 const themeToggle = document.querySelector('#themeButton')
 const bodyBackground = document.getElementById('#body')
 
@@ -12,6 +14,8 @@ const enableDark = () => {
 	localStorage.setItem('darkTheme', 'enabled')
 	themeToggle.innerHTML = `<i id="themeButton__icon" icon-name="sun"></i>`
 	lucide.createIcons()
+	themeEnable = 'Dark'
+	generateAccent()
 	document.querySelector('html').style.colorScheme = "dark"
 }
 
@@ -20,6 +24,8 @@ const disableDark = () => {
 	localStorage.setItem('darkTheme', 'disable')
 	themeToggle.innerHTML = `<i id="themeButton__icon" icon-name="moon"></i>`
 	lucide.createIcons()
+	themeEnable = 'Light'
+	generateAccent()
 	document.querySelector('html').style.colorScheme = "light"
 }
 
@@ -99,14 +105,25 @@ function averageColor(imageElement) {
 	return rgb
 }
 
-let rgb = ''
 
-setTimeout(() => {
+function lightenColor(r, g, b) {
+	let vezes = themeEnable === 'Dark' ? 1.5 : 3
+	if (r < 15 && g < 15 && b < 15) vezes = themeEnable === 'Dark' ? 4.5 : 11
+	r = r * vezes
+	g = g * vezes
+	b = b * vezes
+	const rgb = `rgb(${r}, ${g}, ${b})`
+	// console.log(rgb)
+	return rgb
+}
+
+function generateAccent() {
 	const img = document.createElement('img')
 	img.src = CONFIGSaved.dataImage
 	rgb = averageColor(img)
 
-	const stringRGB = 'rgb(' + (rgb.r > 0 ? rgb.r + 50 : rgb.r) + ','
-		+ (rgb.g + 30) + ',' + (rgb.r <= 0 ? rgb.b + 150 : rgb.b) + ')'
+	const stringRGB = lightenColor(rgb.r, rgb.g, rgb.b)
 	document.body.style.setProperty('--accent', stringRGB)
-}, 500)
+}
+
+setTimeout(() => generateAccent(), 500)
