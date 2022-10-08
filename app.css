@@ -348,10 +348,9 @@ button:active {
 .formEditeButton {
   position: fixed;
   z-index: 1;
-  scale: 0;
   box-shadow: 0 7px 7px rgba(0, 0, 0, 0.40);
   top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(0);
   display: grid;
   justify-items: center;
   align-items: center;
@@ -390,6 +389,7 @@ button.button-edite {
   height: 30px;
   display: grid;
   justify-items: center;
+  opacity: 0;
   align-items: center;
 }
 
@@ -399,6 +399,10 @@ button.button-edite {
   justify-content: center;
   align-items: center;
   width: 100%;
+}
+
+.button:hover .button-edite {
+  opacity: 1;
 }
 
 .buttonIcon {
