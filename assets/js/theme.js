@@ -88,7 +88,7 @@ function averageColor(imageElement) {
 		imageElement.width
 	context.drawImage(imageElement, 0, 0)
 	imgData = context.getImageData(
-		0, 0, width, height)
+		1, 1, width, height)
 	length = imgData.data.length
 
 	for (let i = 0; i < length; i += 4) {
@@ -113,7 +113,6 @@ function lightenColor(r, g, b) {
 	g = g * vezes
 	b = b * vezes
 	const rgb = `rgb(${r}, ${g}, ${b})`
-	// console.log(rgb)
 	return rgb
 }
 
