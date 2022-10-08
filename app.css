@@ -405,6 +405,10 @@ button.button-edite {
   opacity: 1;
 }
 
+.button:hover .button-edite svg {
+  stroke: var(--fg);
+}
+
 .buttonIcon {
   width: var(--icon);
   height: var(--icon);
