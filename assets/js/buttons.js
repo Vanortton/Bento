@@ -6,15 +6,18 @@
 const generateFirstButtonsContainer = () => {
 	for (const button of CONFIG.firstButtonsContainer) {
 		let item = `
-        <a
-          href="${button.link}"
-          target="${CONFIG.openInNewTab ? '_blank' : ''}"
-          class="card button button__${button.id}" id="${button.id}-1" title="${button.name}"
-        >
-          <i class="buttonIcon" icon-name="${button.icon}"></i>
-		  <span>&nbsp;${button.name}</span>
-		  <button class="button-edite" id="${button.id}-1"><i icon-name="pencil"></i></button>
-        </a>
+        <div class="link_glob">
+			<a
+          	href="${button.link}"
+          	target="${CONFIG.openInNewTab ? '_blank' : ''}"
+          	class="card button button__${button.id}" id="${button.id}-1" title="${button.name}" >
+          		<i class="buttonIcon" icon-name="${button.icon}"></i>
+		  		<span>&nbsp;${button.name}</span>
+        	</a>
+			<button class="button-edite" id="${button.id}-1">
+				<i icon-name="pencil"></i>
+			</button>
+		</div>
     `;
 
 		const position = 'beforeend';
@@ -26,15 +29,18 @@ const generateFirstButtonsContainer = () => {
 const generateSecondButtonsContainer = () => {
 	for (const button of CONFIG.secondButtonsContainer) {
 		let item = `
-        <a
-          href="${button.link}"
-          target="${CONFIG.openInNewTab ? '_blank' : ''}"
-          class="card button button__${button.id}" id="${button.id}-2" title="${button.name}"
-        >
-          <i class="buttonIcon" icon-name="${button.icon}"></i>
-		  <span>&nbsp;${button.name}</span>
-		  <button class="button-edite" id="${button.id}-2"><i icon-name="pencil"></i></button>
-        </a>
+        <div class="link_glob">
+			<a
+          	href="${button.link}"
+          	target="${CONFIG.openInNewTab ? '_blank' : ''}"
+          	class="card button button__${button.id}" id="${button.id}-2" title="${button.name}" >
+          		<i class="buttonIcon" icon-name="${button.icon}"></i>
+		  		<span>&nbsp;${button.name}</span>
+        	</a>
+			<button class="button-edite" id="${button.id}-2">
+				<i icon-name="pencil"></i>
+			</button>
+		</div>
     `;
 
 		const position = 'beforeend';

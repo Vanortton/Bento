@@ -15,7 +15,7 @@ const enableDark = () => {
 	themeToggle.innerHTML = `<i id="themeButton__icon" icon-name="sun"></i>`
 	lucide.createIcons()
 	themeEnable = 'Dark'
-	generateAccent()
+	// generateAccent()
 	document.querySelector('html').style.colorScheme = "dark"
 }
 
@@ -25,7 +25,7 @@ const disableDark = () => {
 	themeToggle.innerHTML = `<i id="themeButton__icon" icon-name="moon"></i>`
 	lucide.createIcons()
 	themeEnable = 'Light'
-	generateAccent()
+	// generateAccent()
 	document.querySelector('html').style.colorScheme = "light"
 }
 
@@ -72,57 +72,57 @@ if (CONFIG.changeThemeByHour && CONFIG.autoChangeTheme && !CONFIG.changeThemeByO
 	}
 }
 
-function averageColor(imageElement) {
-	var canvas = document.createElement('canvas'),
+// function averageColor(imageElement) {
+// 	var canvas = document.createElement('canvas'),
 
-		context = canvas.getContext && canvas.getContext('2d'), imgData, width, height, length,
-		rgb = { r: 0, g: 0, b: 0 },
-		count = 0
-	height = canvas.height =
-		imageElement.naturalHeight ||
-		imageElement.offsetHeight ||
-		imageElement.height
-	width = canvas.width =
-		imageElement.naturalWidth ||
-		imageElement.offsetWidth ||
-		imageElement.width
-	context.drawImage(imageElement, 0, 0)
-	imgData = context.getImageData(
-		1, 1, width, height)
-	length = imgData.data.length
+// 		context = canvas.getContext && canvas.getContext('2d'), imgData, width, height, length,
+// 		rgb = { r: 0, g: 0, b: 0 },
+// 		count = 0
+// 	height = canvas.height =
+// 		imageElement.naturalHeight ||
+// 		imageElement.offsetHeight ||
+// 		imageElement.height
+// 	width = canvas.width =
+// 		imageElement.naturalWidth ||
+// 		imageElement.offsetWidth ||
+// 		imageElement.width
+// 	context.drawImage(imageElement, 0, 0)
+// 	imgData = context.getImageData(
+// 		1, 1, width, height)
+// 	length = imgData.data.length
 
-	for (let i = 0; i < length; i += 4) {
-		rgb.r += imgData.data[i]
-		rgb.g += imgData.data[i + 1]
-		rgb.b += imgData.data[i + 2]
-		count++
-	}
+// 	for (let i = 0; i < length; i += 4) {
+// 		rgb.r += imgData.data[i]
+// 		rgb.g += imgData.data[i + 1]
+// 		rgb.b += imgData.data[i + 2]
+// 		count++
+// 	}
 
-	rgb.r = Math.floor(rgb.r / count)
-	rgb.g = Math.floor(rgb.g / count)
-	rgb.b = Math.floor(rgb.b / count)
+// 	rgb.r = Math.floor(rgb.r / count)
+// 	rgb.g = Math.floor(rgb.g / count)
+// 	rgb.b = Math.floor(rgb.b / count)
 
-	return rgb
-}
+// 	return rgb
+// }
 
+// function lightenColor(r, g, b) {
+// 	let vezes = themeEnable === 'Dark' ? 1.5 : 3
+// 	if (r < 15 && g < 15 && b < 15) vezes = themeEnable === 'Dark' ? 4.5 : 11
+// 	if (r >= 115 && g >= 115 && b >= 115) vezes = themeEnable === 'Dark' ? -0.6 : 1
+// 	r = r * vezes
+// 	g = g * vezes
+// 	b = b * vezes
+// 	const rgb = `rgb(${r}, ${g}, ${b})`
+// 	return rgb
+// }
 
-function lightenColor(r, g, b) {
-	let vezes = themeEnable === 'Dark' ? 1.5 : 3
-	if (r < 15 && g < 15 && b < 15) vezes = themeEnable === 'Dark' ? 4.5 : 11
-	r = r * vezes
-	g = g * vezes
-	b = b * vezes
-	const rgb = `rgb(${r}, ${g}, ${b})`
-	return rgb
-}
+// function generateAccent() {
+// 	const img = document.createElement('img')
+// 	img.src = CONFIGSaved.dataImage
+// 	rgb = averageColor(img)
 
-function generateAccent() {
-	const img = document.createElement('img')
-	img.src = CONFIGSaved.dataImage
-	rgb = averageColor(img)
+// 	const stringRGB = lightenColor(rgb.r, rgb.g, rgb.b)
+// 	document.body.style.setProperty('--accent', stringRGB)
+// }
 
-	const stringRGB = lightenColor(rgb.r, rgb.g, rgb.b)
-	document.body.style.setProperty('--accent', stringRGB)
-}
-
-setTimeout(() => generateAccent(), 500)
+// setTimeout(() => generateAccent(), 500)
