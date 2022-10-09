@@ -2,9 +2,11 @@
 // ├┴┐│ │ │  │ │ ││││└─┐
 // └─┘└─┘ ┴  ┴ └─┘┘└┘└─┘
 // Function to print Button Cards.
+JSON.parse(window.localStorage.getItem('buttons')) == null ?
+	window.localStorage.setItem('buttons', JSON.stringify(buttons)) : buttons = JSON.parse(window.localStorage.getItem('buttons'))
 
 const generateFirstButtonsContainer = () => {
-	for (const button of CONFIG.firstButtonsContainer) {
+	for (const button of buttons.firstButtonsContainer) {
 		let item = `
         <div class="link_glob">
 			<a
@@ -27,7 +29,7 @@ const generateFirstButtonsContainer = () => {
 };
 
 const generateSecondButtonsContainer = () => {
-	for (const button of CONFIG.secondButtonsContainer) {
+	for (const button of buttons.secondButtonsContainer) {
 		let item = `
         <div class="link_glob">
 			<a

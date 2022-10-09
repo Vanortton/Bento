@@ -1,8 +1,7 @@
-let buttons = {
-    firstButtonsContainer: { ...CONFIG.firstButtonsContainer },
-    secondButtonsContainer: { ...CONFIG.secondButtonsContainer }
+const buttonToEdite = {
+    indexButton: '1',
+    sectionName: 'firstButtonsContainer'
 }
-
 const buttonsEdite = document.querySelectorAll('.button-edite')
 const form = document.querySelector('.formEditeButton')
 const inputIcon = document.querySelector('.formEditeButton input[data-icon]')
@@ -27,11 +26,30 @@ buttonsEdite.forEach(button => {
         const section = (button.id).split('-')[1]
         const sectionName = section === '1' ? 'firstButtonsContainer'
             : 'secondButtonsContainer'
-        
+        buttonToEdite.indexButton = indexButton
+        buttonToEdite.sectionName = sectionName
         openCloseForm('open')
     }
 })
 
+buttonSave.onclick = () => {
+    if (inputName.value && inputUrl.value) {
+        const section = `${buttonToEdite.sectionName}`
+        const index = `${buttonToEdite.indexButton - 1}`
+        const buttonInEdition = buttons[section][index]
+        buttonInEdition.name = inputName.value
+        buttonInEdition.link = inputUrl.value
+        buttonInEdition.icon = inputIcon.value
+        window.localStorage.setItem('buttons', JSON.stringify(buttons))
+        openCloseForm('close')
+        window.location.reload()
+    } else {
+        alert('Preencha todos os campos')
+    }
+}
+
 buttonCancel.onclick = () => {
+    inputName.value = ""
+    inputUrl.value = ""
     openCloseForm('close')
 }

@@ -84,6 +84,11 @@ h3 {
     padding: 5px;
 }
 
+.dargenZone * {
+    border-color: #eb2349;
+    color: #eb2349;
+}
+
 hr {
     border: 1px solid var(--cards);
 }

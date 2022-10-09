@@ -8,6 +8,17 @@ function imageUploaded() {
     reader.readAsDataURL(file)
 }
 
+function alertPerson(text) {
+    document.querySelector('.alert').style.transform = "scaleX(1) translate(-50%, -50%)"
+    document.querySelector('.alert').style.opacity = "1"
+    document.querySelector('.alert').innerHTML = text
+    setTimeout(() => {
+        document.querySelector('.alert').style.transform = "scaleX(0) translate(-50%, -50%)"
+        document.querySelector('.alert').style.opacity = "0"
+        window.location.reload()
+    }, 1500)
+}
+
 function saveData() {
     const inputs = {
         name: document.querySelector('input[name="name"]'),
@@ -34,14 +45,7 @@ function saveData() {
     CONFIGSaved.dataImage = base64String
     window.localStorage.setItem('CONFIG', JSON.stringify(CONFIGSaved))
 
-    document.querySelector('.alert').style.transform = "scaleX(1) translate(-50%, -50%)"
-    document.querySelector('.alert').style.opacity = "1"
-    document.querySelector('.alert').innerHTML = "Alterações salvas"
-    setTimeout(() => {
-        document.querySelector('.alert').style.transform = "scaleX(0) translate(-50%, -50%)"
-        document.querySelector('.alert').style.opacity = "0"
-        window.location.reload()
-    }, 1500)
+    alertPerson('Alterações salvas')
 }
 
 document.querySelector('button[btn-salvar]').onclick = (e) => {
@@ -54,4 +58,15 @@ for (const sett in CONFIGSaved) {
     sett !== 'name' && sett !== 'hourDarkThemeActive' && sett !== 'hourDarkThemeInactive' && sett !== 'dataImage' ?
         document.querySelector(`input[name="${sett}"][value="${CONFIGSaved[sett]}"]`).checked = true : ''
     sett === 'hourDarkThemeActive' || sett === 'hourDarkThemeInactive' ? document.querySelector(`input[name="${sett}"]`).value = CONFIGSaved[sett] : ''
+}
+
+const formatData = document.querySelector('button[format-data]')
+const formatButtons = document.querySelector('button[format-buttons]')
+formatData.onclick = () => {
+    window.localStorage.removeItem('CONFIG')
+    alertPerson('Dados apagados')
+}
+formatButtons.onclick = () => {
+    window.localStorage.removeItem('buttons')
+    alertPerson('Botões restaurados')
 }

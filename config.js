@@ -211,6 +211,11 @@ let PRECONFIG = {
 	autoChangeTheme: true
 }
 
+let buttons = {
+	firstButtonsContainer: [...CONFIG.firstButtonsContainer],
+	secondButtonsContainer: [...CONFIG.secondButtonsContainer]
+}
+
 JSON.parse(window.localStorage.getItem('CONFIG')) == null ?
 	window.localStorage.setItem('CONFIG', JSON.stringify(PRECONFIG)) : PRECONFIG = JSON.parse(window.localStorage.getItem('CONFIG'))
 let objectSaved = JSON.parse(window.localStorage.getItem('CONFIG'))
