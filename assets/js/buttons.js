@@ -14,7 +14,7 @@ const generateFirstButtonsContainer = () => {
           		<i class="buttonIcon" icon-name="${button.icon}"></i>
 		  		<span>&nbsp;${button.name}</span>
         	</a>
-			<button class="button-edite" id="${button.id}-1">
+			<button aria-label="Editar link" class="button-edite" id="${button.id}-1">
 				<i icon-name="pencil"></i>
 			</button>
 		</div>
@@ -37,7 +37,7 @@ const generateSecondButtonsContainer = () => {
           		<i class="buttonIcon" icon-name="${button.icon}"></i>
 		  		<span>&nbsp;${button.name}</span>
         	</a>
-			<button class="button-edite" id="${button.id}-2">
+			<button aria-label="Editar link" class="button-edite" id="${button.id}-2">
 				<i icon-name="pencil"></i>
 			</button>
 		</div>

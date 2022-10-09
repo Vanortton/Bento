@@ -59,7 +59,7 @@ function getWeather(latitude, longitude) {
 
 function displayWeather() {
 	cityElement.innerHTML = weather.name + ': '
-	iconElement.innerHTML = `<img src="assets/icons/${CONFIG.weatherIcons}/${weather.iconId}.png"/>`
+	iconElement.innerHTML = `<img src="assets/icons/${CONFIG.weatherIcons}/${weather.iconId}.png" alt="Ícone do clima" />`
 	tempElement.innerHTML = `${weather.temperature.value.toFixed(0)}°<span class="darkfg">${tempUnit}</span>`
 	descElement.innerHTML = capitalize(weather.description)
 }

@@ -13,11 +13,11 @@
 
 <body class="">
 	<a href="./settings.html">
-		<button id="settings">
+		<button aria-label="Configurações" id="settings">
 			<i id="settingsIcon" icon-name="settings"></i>
 		</button>
 	</a>
-	<button id="themeButton">
+	<button aria-label="Mudar tema" id="themeButton">
 		<i id="themeIcon" icon-name="moon"></i>
 	</button>
 
@@ -27,7 +27,7 @@
 		<form class="search-form" action="https://www.google.com.br/search">
 			<input type="text" class="search-text" placeholder="Pesquisar no Google" aria-label="Pesquisar no Google"
 				name="q" />
-			<button class="search-btn" type="submit">
+			<button class="search-btn" aria-label="Pesquisar no Google" type="submit">
 				<i class="buttonIcon" icon-name="search"></i>
 			</button>
 		</form>
@@ -56,7 +56,7 @@
 			</div>
 			<div class="weather">
 				<div class="weatherIcon">
-					<img src="assets/icons/OneDark/unknown.png" />
+					<img src="assets/icons/OneDark/unknown.png" alt="Ícone do clima" />
 				</div>
 				<div class="weatherValue">
 					<p>- °<span class="g">c</span></p>
@@ -69,12 +69,13 @@
 
 		<div class="formEditeButton">
 			<h2>Editar link</h2>
+			<p style="color: gray;">Ainda não está funcionando</p>
 			<input type="text" data-name placeholder="Nome do site">
 			<input type="text" data-url placeholder="Url do site">
 			<input type="text" data-icon value="link">
 			<div class="buttons-actions">
-				<button data-save>Salvar</button>
-				<button data-cancel>Cancelar</button>
+				<button aria-label="Salvar" data-save>Salvar</button>
+				<button aria-label="Cancelar" data-cancel>Cancelar</button>
 			</div>
 		</div>
 
