@@ -51,65 +51,47 @@ body {
 }
 
 body.mobile {
-  font-size: 3.5vw;
-  --fg-primary: 16vw;
-  --fg-secondary: 6.3vw;
-  --fg-date: 8vw;
-  --fg-list: 3.5vw;
-  --icon: 4.5vw;
+  --fg-primary: 55px;
+  --fg-secondary: 20px;
+  --fg-date: 30px;
+  --fg-list: 14px;
+  --icon: 18px;
 }
 
-body.mobile .card {
-  padding: 70px 0px;
-  background-color: var(--cards);
-  box-shadow: 0 5px 7px rgb(0 0 0 / 35%);
-  border-radius: 5px;
+body.mobile #settings {
+  margin: 0.5em 0em 0em 0.3em;
 }
 
-body.mobile input.search-text {
-  padding: 16px 20px;
-  border-radius: 16px 0px 0px 16px;
-  width: 65vw;
-  font-size: 3.5vw;
-}
-
-body.mobile #themeButton svg,
-body.mobile #settings svg {
-  height: 6.5vw;
-  width: 5vw;
-}
-
-body.mobile input.search-text {
-  width: 65vw;
-}
-
-body.mobile .list {
-  min-height: 483px;
-}
-
-body.mobile .card {
-  padding: 70px 0px;
-  background-color: var(--cards);
-  box-shadow: 0 5px 7px rgb(0 0 0 / 35%);
-  border-radius: 5px;
-  height: 180px;
-}
-
-body.mobile .timeBlock {
-  margin: 2vh 0vw;
-}
-
-body.mobile .weatherIcon img {
-  width: 12vw;
-  height: 12vw;
-}
-
-body.mobile .linksBlock {
-  grid-row-gap: 30px !important;
+body.mobile #themeButton {
+  margin: 0.5em 0.3em 0em 0em;
 }
 
 body.mobile .buttonsContainer {
-  grid-row-gap: 70px;
+  padding: 10px 5px;
+  grid-column-gap: 10px;
+  grid-row-gap: 20px;
+}
+
+body.mobile input.search-text {
+  padding: 10px;
+  font-size: 0.9rem;
+}
+
+body.mobile .card.button {
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+}
+
+body.mobile .weatherIcon img {
+  width: 45px;
+  height: 45px;
+}
+
+body.mobile .button-edite {
+  opacity: 1;
+  width: 27px;
+  height: 27px;
 }
 
 .notransition {
@@ -264,7 +246,6 @@ button:active {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 30px;
 }
 
 .weather {
@@ -302,6 +283,7 @@ button:active {
 
 .weatherCity h1 {
   color: var(--fg);
+  font-size: var(--fg-date);
 }
 
 .weatherIcon img {
@@ -380,8 +362,8 @@ button:active {
 }
 
 button.button-edite svg {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   position: absolute;
 }
 
@@ -395,6 +377,8 @@ button.button-edite {
   justify-items: center;
   opacity: 0;
   align-items: center;
+  border-color: gray;
+  color: gray;
 }
 
 .button {
