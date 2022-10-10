@@ -392,6 +392,7 @@ button.button-edite {
   justify-content: center;
   align-items: center;
   width: 100%;
+  flex-wrap: wrap;
 }
 
 .link_glob:hover .button-edite {
