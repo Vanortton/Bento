@@ -15,7 +15,7 @@ const enableDark = () => {
 	themeToggle.innerHTML = `<i id="themeButton__icon" icon-name="sun"></i>`
 	lucide.createIcons()
 	themeEnable = 'Dark'
-	// generateAccent()
+	generateAccent()
 	document.querySelector('html').style.colorScheme = "dark"
 }
 
@@ -25,7 +25,7 @@ const disableDark = () => {
 	themeToggle.innerHTML = `<i id="themeButton__icon" icon-name="moon"></i>`
 	lucide.createIcons()
 	themeEnable = 'Light'
-	// generateAccent()
+	generateAccent()
 	document.querySelector('html').style.colorScheme = "light"
 }
 
@@ -98,6 +98,7 @@ function averageColor(imageElement) {
 		count++
 	}
 
+	// Creating an average color
 	rgb.r = Math.floor(rgb.r / count)
 	rgb.g = Math.floor(rgb.g / count)
 	rgb.b = Math.floor(rgb.b / count)
@@ -106,12 +107,25 @@ function averageColor(imageElement) {
 }
 
 function lightenColor(r, g, b) {
+	// Creating rules for how much to lighten the color
+	const rules = {
+		allWhite: r === 255 && g === 255 && b === 255,
+		allBlack: r === 0 && g === 0 && b === 0,
+		veryClear: r >= 115 && g >= 115 && b >= 115,
+		veryDark: r < 15 && g < 15 && b < 15
+	}
+
+	// Checking color clarity
 	let vezes = themeEnable === 'Dark' ? 1.5 : 3
-	if (r < 15 && g < 15 && b < 15) vezes = themeEnable === 'Dark' ? 4.5 : 11
-	if (r >= 115 && g >= 115 && b >= 115) vezes = themeEnable === 'Dark' ? -0.6 : 1
-	r = r * vezes
-	g = g * vezes
-	b = b * vezes
+	if (rules.veryDark) vezes = themeEnable === 'Dark' ? 4.5 : 11
+	if (rules.veryClear) vezes = themeEnable === 'Dark' ? -8 : 1
+	if (rules.allWhite) vezes = 0
+	if (rules.allBlack) vezes = 0
+
+	// lightened the colors
+	r = vezes > 0 ? r * vezes : r - (vezes * vezes)
+	g = vezes > 0 ? g * vezes : g - (vezes * vezes)
+	b = vezes > 0 ? b * vezes : b - (vezes * vezes)
 	const rgb = `rgb(${r}, ${g}, ${b})`
 	return rgb
 }
