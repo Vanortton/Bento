@@ -337,7 +337,7 @@ button:active {
 }
 
 .formEditeButton {
-  position: fixed;
+  position: fixed!important;
   z-index: 1;
   box-shadow: 0 7px 7px rgba(0, 0, 0, 0.40);
   top: 50%; left: 50%;
