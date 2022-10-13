@@ -72,24 +72,34 @@ if (CONFIG.changeThemeByHour && CONFIG.autoChangeTheme && !CONFIG.changeThemeByO
 	}
 }
 
-function averageColor(imageElement) {
-	var canvas = document.createElement('canvas'),
+function lightenColor(r, g, b) {
+	if (r - g > 90 && r - b > 90) {
+		themeEnable === 'Dark' ? r = r - 50 : r = r - 10
+	}
 
-		context = canvas.getContext && canvas.getContext('2d'), imgData, width, height, length,
-		rgb = { r: 0, g: 0, b: 0 },
-		count = 0
-	height = canvas.height =
-		imageElement.naturalHeight ||
-		imageElement.offsetHeight ||
-		imageElement.height
-	width = canvas.width =
-		imageElement.naturalWidth ||
-		imageElement.offsetWidth ||
-		imageElement.width
-	context.drawImage(imageElement, 0, 0)
-	imgData = context.getImageData(
-		1, 1, width, height)
+	const rgb = `rgb(${r}, ${g}, ${b})`
+	document.body.style.setProperty('--accent', rgb)
+}
+
+function waitForImage(imgElem) {
+	return new Promise((res, rej) => {
+		if (imgElem.complete) {
+			return res()
+		}
+		imgElem.onload = () => res()
+		imgElem.onerror = () => rej(imgElem)
+	})
+}
+
+async function averageColor(imgElem) {
+	await waitForImage(imgElem)
+	const canvas = new OffscreenCanvas(1, 1)
+
+	const ctx = canvas.getContext("2d")
+	ctx.drawImage(imgElem, 0, 0, 1, 1)
+	const imgData = ctx.getImageData(0, 0, 1, 1)
 	length = imgData.data.length
+	let count = 0
 
 	for (let i = 0; i < length; i += 4) {
 		rgb.r += imgData.data[i]
@@ -98,45 +108,16 @@ function averageColor(imageElement) {
 		count++
 	}
 
-	// Creating an average color
-	rgb.r = Math.floor(rgb.r / count)
-	rgb.g = Math.floor(rgb.g / count)
-	rgb.b = Math.floor(rgb.b / count)
-
-	return rgb
+	return {
+		r: Math.floor(imgData.data[0]/ count),
+		g: Math.floor(imgData.data[1]/ count),
+		b: Math.floor(imgData.data[2]/ count)
+	};
 }
 
-function lightenColor(r, g, b) {
-	// Creating rules for how much to lighten the color
-	const rules = {
-		allWhite: r === 255 && g === 255 && b === 255,
-		allBlack: r === 0 && g === 0 && b === 0,
-		veryClear: r >= 115 && g >= 115 && b >= 115,
-		veryDark: r < 15 && g < 15 && b < 15
-	}
+const imagem = document.createElement("img")
+imagem.src = CONFIGSaved.dataImage
 
-	// Checking color clarity
-	let vezes = themeEnable === 'Dark' ? 1.5 : 3
-	if (rules.veryDark) vezes = themeEnable === 'Dark' ? 4.5 : 11
-	if (rules.veryClear) vezes = themeEnable === 'Dark' ? -8 : 1
-	if (rules.allWhite) vezes = 0
-	if (rules.allBlack) vezes = 0
-
-	// lightened the colors
-	r = vezes > 0 ? r * vezes : r - (vezes * vezes)
-	g = vezes > 0 ? g * vezes : g - (vezes * vezes)
-	b = vezes > 0 ? b * vezes : b - (vezes * vezes)
-	const rgb = `rgb(${r}, ${g}, ${b})`
-	return rgb
-}
-
-function generateAccent() {
-	const img = document.createElement('img')
-	img.src = CONFIGSaved.dataImage
-	rgb = averageColor(img)
-
-	const stringRGB = lightenColor(rgb.r, rgb.g, rgb.b)
-	document.body.style.setProperty('--accent', stringRGB)
-}
-
-setTimeout(() => generateAccent(), 500)
+averageColor(imagem).then(rgb => {
+	lightenColor(rgb.r, rgb.g, rgb.b)
+})
