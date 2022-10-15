@@ -4,6 +4,8 @@
 // Set theme based on Configurations and Preferences
 
 let rgb = ''
+const imagem = document.createElement("img")
+imagem.src = CONFIGSaved.dataImage
 let darkTheme = localStorage.getItem('darkTheme')
 let themeEnable = 'Light'
 const themeToggle = document.querySelector('#themeButton')
@@ -15,7 +17,7 @@ const enableDark = () => {
 	themeToggle.innerHTML = `<i id="themeButton__icon" icon-name="sun"></i>`
 	lucide.createIcons()
 	themeEnable = 'Dark'
-	// generateAccent()
+	generateAccent()
 	document.querySelector('html').style.colorScheme = "dark"
 }
 
@@ -25,7 +27,7 @@ const disableDark = () => {
 	themeToggle.innerHTML = `<i id="themeButton__icon" icon-name="moon"></i>`
 	lucide.createIcons()
 	themeEnable = 'Light'
-	// generateAccent()
+	generateAccent()
 	document.querySelector('html').style.colorScheme = "light"
 }
 
@@ -79,12 +81,20 @@ function lightenColor(r, g, b) {
 		const addOperation = num + (num * porcentagem)
 		const subOperation = num - (num * porcentagem)
 		const result = operation === '+' ? addOperation : subOperation
-		console.log(num)
-		console.log(result)
+		result > 255 ? result = 255 : ''
+		result < 0 ? result = 0 : ''
 		return result
 	}
 
-	if (themeEnable === 'Light') {
+	const regras = {
+		lightTheme: themeEnable === 'Light',
+		darkTheme: themeEnable === 'Dark',
+		corForte: ''
+	}
+
+	if (themeEnable === 'Light' &&) {
+
+	} else if (themeEnable === 'Light') {
 		for (let i = 0; i < arrayRGB.length; i++) {
 			const result = Math.floor(porcentagem(arrayRGB[i], 0.3, '+'))
 			arrayRGB[i] = result
@@ -94,8 +104,6 @@ function lightenColor(r, g, b) {
 			const result = Math.floor(porcentagem(arrayRGB[i], 0.3, '-'))
 			arrayRGB[i] = result
 		}
-	} else if (r - g > 90 && r - b > 90) {
-		themeEnable === 'Dark' ? r = r - 50 : r = r - 10
 	}
 
 	const rgb = `rgb(${arrayRGB[0]}, ${arrayRGB[1]}, ${arrayRGB[2]})`
@@ -136,9 +144,8 @@ async function averageColor(imgElem) {
 	};
 }
 
-const imagem = document.createElement("img")
-imagem.src = CONFIGSaved.dataImage
-
-averageColor(imagem).then(rgb => {
-	lightenColor(rgb.r, rgb.g, rgb.b)
-})
+function generateAccent() {
+	averageColor(imagem).then(rgb => {
+		lightenColor(rgb.r, rgb.g, rgb.b)
+	})
+}
