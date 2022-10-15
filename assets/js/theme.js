@@ -91,10 +91,7 @@ function lightenColor(r, g, b) {
 		darkTheme: themeEnable === 'Dark',
 		corForte: ''
 	}
-
-	if (themeEnable === 'Light' &&) {
-
-	} else if (themeEnable === 'Light') {
+	if (themeEnable === 'Light') {
 		for (let i = 0; i < arrayRGB.length; i++) {
 			const result = Math.floor(porcentagem(arrayRGB[i], 0.3, '+'))
 			arrayRGB[i] = result
