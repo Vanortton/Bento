@@ -73,11 +73,32 @@ if (CONFIG.changeThemeByHour && CONFIG.autoChangeTheme && !CONFIG.changeThemeByO
 }
 
 function lightenColor(r, g, b) {
-	if (r - g > 90 && r - b > 90) {
+	const arrayRGB = [r, g, b]
+
+	const porcentagem = (num, porcentagem, operation) => {
+		const addOperation = num + (num * porcentagem)
+		const subOperation = num - (num * porcentagem)
+		const result = operation === '+' ? addOperation : subOperation
+		console.log(num)
+		console.log(result)
+		return result
+	}
+
+	if (themeEnable === 'Light') {
+		for (let i = 0; i < arrayRGB.length; i++) {
+			const result = Math.floor(porcentagem(arrayRGB[i], 0.3, '+'))
+			arrayRGB[i] = result
+		}
+	} else if (themeEnable === 'Dark') {
+		for (let i = 0; i < arrayRGB.length; i++) {
+			const result = Math.floor(porcentagem(arrayRGB[i], 0.3, '-'))
+			arrayRGB[i] = result
+		}
+	} else if (r - g > 90 && r - b > 90) {
 		themeEnable === 'Dark' ? r = r - 50 : r = r - 10
 	}
 
-	const rgb = `rgb(${r}, ${g}, ${b})`
+	const rgb = `rgb(${arrayRGB[0]}, ${arrayRGB[1]}, ${arrayRGB[2]})`
 	document.body.style.setProperty('--accent', rgb)
 }
 
