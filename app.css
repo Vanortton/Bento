@@ -20,7 +20,6 @@ body {
 }
 
 .darktheme {
-  /* --accent: #d95757; */
   --accent: #57a0d9;
   --background: #19171a;
   --cards: #201e21;
@@ -337,11 +336,12 @@ button:active {
 }
 
 .formEditeButton {
-  position: fixed!important;
+  position: absolute;
   z-index: 1;
   box-shadow: 0 7px 7px rgba(0, 0, 0, 0.40);
   top: 50%; left: 50%;
-  transform: translate(-50%, -50%) scale(0);
+  transform: translate(-50%, -50%);
+  scale: 0;
   display: grid;
   justify-items: center;
   align-items: center;
@@ -533,4 +533,8 @@ button.button-edite {
     grid-gap: 3vw;
     height: 100px;
   }
+}
+
+*::selection {
+  background: var(--accent);
 }
