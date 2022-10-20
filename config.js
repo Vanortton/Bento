@@ -199,7 +199,7 @@ let CONFIG = {
 
 let PRECONFIG = {
 	name: 'User',
-	imageBackground: false,
+	imageBackground: true,
 	dataImage: 'assets/background.jpg',
 	openInNewTab: false,
 	bentoLayout: 'bento',
