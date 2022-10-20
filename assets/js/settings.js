@@ -34,8 +34,9 @@ function saveData() {
         autoChangeTheme: document.querySelector('input[name="autoChangeTheme"]:checked'),
     }
 
+    const toTrueOrFalse = value => value === 'true' ? true : value === 'false' ? false : value
+
     for (let input in inputs) {
-        const toTrueOrFalse = value => value === 'true' ? true : value === 'false' ? false : value
         inputs[input] != null ? CONFIGSaved[`${inputs[input].name}`] = toTrueOrFalse(inputs[input].value) : ''
         window.localStorage.setItem('CONFIG', JSON.stringify(CONFIGSaved))
         objectSaved = JSON.parse(window.localStorage.getItem('CONFIG'))
@@ -45,6 +46,13 @@ function saveData() {
     CONFIGSaved.dataImage = base64String
     window.localStorage.setItem('CONFIG', JSON.stringify(CONFIGSaved))
 
+
+    const devOption = document.querySelector('input[name="devOption"]:checked') ?
+        document.querySelector('input[name="devOption"]:checked') :
+        document.querySelector('input[name="devOption" id="devOptionFalse"]')
+    
+    window.localStorage.setItem('devOption', JSON.stringify(toTrueOrFalse(devOption.value)))
+
     alertPerson('Alterações salvas')
 }
 
@@ -52,6 +60,13 @@ document.querySelector('button[btn-salvar]').onclick = (e) => {
     e.preventDefault()
     saveData()
 }
+
+window.localStorage.getItem('devOption') === null ?
+    window.localStorage.setItem('devOption', JSON.stringify(false)) : ''
+
+let devOption = window.localStorage.getItem('devOption') === 'true' ? true : false
+document.querySelector(`input[name="devOption"][value="${devOption}"]`).checked = true
+
 document.querySelector('input[name="name"]').value = CONFIGSaved.name ? CONFIGSaved.name : 'User'
 
 for (const sett in CONFIGSaved) {
