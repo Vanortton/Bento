@@ -12,9 +12,15 @@ const buttonCancel = document.querySelector('.formEditeButton button[data-cancel
 
 function openCloseForm(action) {
     if (action === 'open') {
-        form.style.transform = 'translate(-50%, -50%) scale(1)'
+        document.body.style.overflow = 'hidden'
+        window.scrollTo({
+            top: 150,
+            behavior: 'smooth'
+        }) 
+        form.style.scale = '1'
     } else if (action === 'close') {
-        form.style.transform = 'translate(-50%, -50%) scale(0)'
+        document.body.style.overflow = 'auto'
+        form.style.scale = '0'
     } else {
         throw new Error('Invalid action')
     }
