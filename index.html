@@ -108,6 +108,14 @@
 		if (objectSaved == null || objectSaved == undefined || objectSaved === {}) {
 			window.location.href = "/settings.html"
 		}
+
+		window.localStorage.getItem('devOption') === null ?
+			window.localStorage.setItem('devOption', JSON.stringify(false)) : ''
+		let devOption = window.localStorage.getItem('devOption') === 'true' ? true : false
+
+		if(devOption) {
+			document.querySelector('input[data-icon]').readOnly = false
+		}
 		</script>
 
 	<!-- Theme -->
