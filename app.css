@@ -395,6 +395,13 @@ button.button-edite {
   flex-wrap: wrap;
 }
 
+.button span {
+  max-width: 110px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .link_glob:hover .button-edite {
   opacity: 1;
 }
