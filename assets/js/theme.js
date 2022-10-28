@@ -15,7 +15,11 @@ const enableDark = () => {
 	document.body.classList.add('darktheme')
 	localStorage.setItem('darkTheme', 'enabled')
 	themeToggle.innerHTML = `<i id="themeButton__icon" icon-name="sun"></i>`
-	lucide.createIcons()
+	try {
+		lucide.createIcons()
+	} catch (err) {
+		alert('Um erro inesperado ocorreu enquanto os ícones eram exibidos')
+	}
 	themeEnable = 'Dark'
 	generateAccent()
 	document.querySelector('html').style.colorScheme = "dark"
@@ -25,14 +29,17 @@ const disableDark = () => {
 	document.body.classList.remove('darktheme')
 	localStorage.setItem('darkTheme', 'disable')
 	themeToggle.innerHTML = `<i id="themeButton__icon" icon-name="moon"></i>`
-	lucide.createIcons()
+	try {
+		lucide.createIcons()
+	} catch (err) {
+		alert('Um erro inesperado ocorreu enquanto os ícones eram exibidos')
+	}
 	themeEnable = 'Light'
 	generateAccent()
 	document.querySelector('html').style.colorScheme = "light"
 }
 
 if (darkTheme === 'enabled') {
-	console.log('Dark theme is enabled')
 	document.body.classList.add('notransition')
 	enableDark()
 	document.body.classList.remove('notransition')
@@ -77,28 +84,36 @@ if (CONFIG.changeThemeByHour && CONFIG.autoChangeTheme && !CONFIG.changeThemeByO
 function lightenColor(r, g, b) {
 	const arrayRGB = [r, g, b]
 
-	const porcentagem = (num, porcentagem, operation) => {
-		const addOperation = num + (num * porcentagem)
-		const subOperation = num - (num * porcentagem)
-		const result = operation === '+' ? addOperation : subOperation
-		result > 255 ? result = 255 : ''
-		result < 0 ? result = 0 : ''
-		return result
+	const porcentagem = (num, porcentagem) => num + (num * porcentagem)
+
+	function colorVeryStrong() {
+		const rVeryStrong = (r - g && r - b > 100) ? 'r' : false
+		const gVeryStrong = (g - r && g - b > 100) ? 'g' : false
+		const bVeryStrong = (b - g && b - r > 100) ? 'b' : false
+		return [rVeryStrong, gVeryStrong, bVeryStrong].filter(v => v)
 	}
 
-	const regras = {
+	const resultFuncStrong = colorVeryStrong()
+
+	const rules = {
 		lightTheme: themeEnable === 'Light',
 		darkTheme: themeEnable === 'Dark',
-		corForte: ''
+		rgbVeryStrong: resultFuncStrong.length !== 0
 	}
-	if (themeEnable === 'Light') {
+
+	if (rules.lightTheme && rules.rgbVeryStrong) {
+		for (let i = 0; i < arrayRGB.length; i++) {
+			const result = Math.floor(porcentagem(arrayRGB[i], por100, '+'))
+			arrayRGB[i] = result
+		}
+	} else if (rules.lightTheme) {
 		for (let i = 0; i < arrayRGB.length; i++) {
 			const result = Math.floor(porcentagem(arrayRGB[i], 0.3, '+'))
 			arrayRGB[i] = result
 		}
-	} else if (themeEnable === 'Dark') {
+	} else if (rules.darkTheme) {
 		for (let i = 0; i < arrayRGB.length; i++) {
-			const result = Math.floor(porcentagem(arrayRGB[i], 0.3, '-'))
+			const result = Math.floor(porcentagem(arrayRGB[i], -0.3, '+'))
 			arrayRGB[i] = result
 		}
 	}
@@ -135,9 +150,9 @@ async function averageColor(imgElem) {
 	}
 
 	return {
-		r: Math.floor(imgData.data[0]/ count),
-		g: Math.floor(imgData.data[1]/ count),
-		b: Math.floor(imgData.data[2]/ count)
+		r: Math.floor(imgData.data[0] / count),
+		g: Math.floor(imgData.data[1] / count),
+		b: Math.floor(imgData.data[2] / count)
 	};
 }
 

@@ -104,7 +104,11 @@
 	
 	<!-- Icons -->
 	<script>
-		lucide.createIcons();
+		try {
+			lucide.createIcons();
+		} catch (err) {
+			alert('Um erro inesperado ocorreu enquanto os ícones eram exibidos')
+		}
 		if (objectSaved == null || objectSaved == undefined || objectSaved === {}) {
 			window.location.href = "/settings.html"
 		}
