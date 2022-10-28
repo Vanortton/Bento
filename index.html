@@ -12,7 +12,7 @@
 	<script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
-<body class="">
+<body>
 	<a href="./settings.html">
 		<button aria-label="Configurações" id="settings">
 			<i id="settingsIcon" icon-name="settings"></i>
@@ -84,12 +84,15 @@
 			<div class="linksBlockLeft" id="linksBlockLeft"></div>
 			<div class="linksBlockRight" id="linksBlockRight"></div>
 		</div>
+
 	</div>
+	<div class="alerts"></div>
 
 	<!-- Config  -->
 	<script src="config.js"></script>
 	
 	<!-- Scripts  -->
+	<script src="assets/js/alerts.js"></script>
 	<script src="assets/js/layout.js"></script>
 	<script src="assets/js/time.js"></script>
 	<script src="assets/js/greeting.js"></script>
@@ -107,7 +110,12 @@
 		try {
 			lucide.createIcons();
 		} catch (err) {
-			alert('Um erro inesperado ocorreu enquanto os ícones eram exibidos')
+			alertCustom({
+				title: 'Erro inesperado',
+				messageHTML: 'Um erro inesperado ocorreu enquanto os ícones eram exibidos, talvez o servidor esteja com problemas',
+				type: 'danger',
+				timeToHide: 5000
+			})
 		}
 		if (objectSaved == null || objectSaved == undefined || objectSaved === {}) {
 			window.location.href = "/settings.html"

@@ -18,7 +18,12 @@ const enableDark = () => {
 	try {
 		lucide.createIcons()
 	} catch (err) {
-		alert('Um erro inesperado ocorreu enquanto os ícones eram exibidos')
+		alertCustom({
+			title: 'Erro inesperado',
+			messageHTML: 'Um erro inesperado ocorreu enquanto os ícones eram exibidos, talvez o servidor esteja com problemas',
+			type: 'danger',
+			timeToHide: 5000
+		})
 	}
 	themeEnable = 'Dark'
 	generateAccent()
@@ -32,7 +37,12 @@ const disableDark = () => {
 	try {
 		lucide.createIcons()
 	} catch (err) {
-		alert('Um erro inesperado ocorreu enquanto os ícones eram exibidos')
+		alertCustom({
+			title: 'Erro inesperado',
+			messageHTML: 'Um erro inesperado ocorreu enquanto os ícones eram exibidos, talvez o servidor esteja com problemas',
+			type: 'danger',
+			timeToHide: 5000
+		})
 	}
 	themeEnable = 'Light'
 	generateAccent()
@@ -103,7 +113,9 @@ function lightenColor(r, g, b) {
 
 	if (rules.lightTheme && rules.rgbVeryStrong) {
 		for (let i = 0; i < arrayRGB.length; i++) {
-			const result = Math.floor(porcentagem(arrayRGB[i], por100, '+'))
+			let per100 = 0.3
+			resultFuncStrong
+			const result = Math.floor(porcentagem(arrayRGB[i], per100, '+'))
 			arrayRGB[i] = result
 		}
 	} else if (rules.lightTheme) {
