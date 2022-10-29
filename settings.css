@@ -86,7 +86,7 @@ h3 {
     padding: 8px 10px;
 }
 
-.dargenZone * {
+.dangerZone * {
     border-color: #eb2349;
     color: #eb2349;
 }
