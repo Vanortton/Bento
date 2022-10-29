@@ -75,13 +75,15 @@ h3 {
 
 .alert {
     opacity: 0;
-    top: 25px; left: 50%;
+    top: 25px;
+    left: 50%;
+    width: fit-content;
     position: sticky;
     transform: scaleX(0) translate(-50%, -0%);
     background: var(--background);
     border-radius: 5px;
     border: 2px solid var(--fg);
-    padding: 5px;
+    padding: 8px 10px;
 }
 
 .dargenZone * {

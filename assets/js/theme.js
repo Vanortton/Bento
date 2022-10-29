@@ -18,12 +18,7 @@ const enableDark = () => {
 	try {
 		lucide.createIcons()
 	} catch (err) {
-		alertCustom({
-			title: 'Erro inesperado',
-			messageHTML: 'Um erro inesperado ocorreu enquanto os ícones eram exibidos, talvez o servidor esteja com problemas',
-			type: 'danger',
-			timeToHide: 5000
-		})
+		alert('Um erro inesperado ocorreu enquanto os ícones eram exibidos, talvez o servidor esteja com problemas')
 	}
 	themeEnable = 'Dark'
 	generateAccent()
@@ -37,12 +32,7 @@ const disableDark = () => {
 	try {
 		lucide.createIcons()
 	} catch (err) {
-		alertCustom({
-			title: 'Erro inesperado',
-			messageHTML: 'Um erro inesperado ocorreu enquanto os ícones eram exibidos, talvez o servidor esteja com problemas',
-			type: 'danger',
-			timeToHide: 5000
-		})
+		alert('Um erro inesperado ocorreu enquanto os ícones eram exibidos, talvez o servidor esteja com problemas')
 	}
 	themeEnable = 'Light'
 	generateAccent()

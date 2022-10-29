@@ -110,12 +110,7 @@
 		try {
 			lucide.createIcons();
 		} catch (err) {
-			alertCustom({
-				title: 'Erro inesperado',
-				messageHTML: 'Um erro inesperado ocorreu enquanto os ícones eram exibidos, talvez o servidor esteja com problemas',
-				type: 'danger',
-				timeToHide: 5000
-			})
+			alert('Um erro inesperado ocorreu enquanto os ícones eram exibidos, talvez o servidor esteja com problemas')
 		}
 		if (objectSaved == null || objectSaved == undefined || objectSaved === {}) {
 			window.location.href = "/settings.html"
