@@ -56,6 +56,6 @@ buttonSave.onclick = () => {
 
 buttonCancel.onclick = () => {
     inputName.value = ""
-    inputUrl.value = ""
+    inputUrl.value = "https://"
     openCloseForm('close')
 }

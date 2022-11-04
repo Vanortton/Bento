@@ -28,7 +28,7 @@
 
 		<form class="search-form" action="https://www.google.com.br/search">
 			<input type="text" class="search-text" placeholder="Pesquisar no Google" aria-label="Pesquisar no Google"
-				name="q" />
+				name="q" autocomplete="off" />
 			<button class="search-btn" aria-label="Pesquisar no Google" type="submit">
 				<i class="buttonIcon" icon-name="search"></i>
 			</button>
@@ -72,7 +72,7 @@
 		<div class="formEditeButton">
 			<h2>Editar link</h2>
 			<input type="text" data-name placeholder="Nome do site">
-			<input type="url" data-url placeholder="Url do site">
+			<input type="url" data-url placeholder="Url do site" autocomplete="url" value="https://">
 			<input type="text" data-icon placeholder="Ícone do link" value="link" readonly>
 			<div class="buttons-actions">
 				<button aria-label="Salvar" data-save>Salvar</button>
